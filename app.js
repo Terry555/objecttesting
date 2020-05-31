@@ -19,4 +19,4 @@ function loadData(){
   xhr.send();
 }
 
-console.log('trying to set up a local server');
+console.log('already created new branch, now merging');
