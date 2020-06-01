@@ -19,4 +19,8 @@ function loadData(){
   xhr.send();
 }
 
+function fakeFunction(x, y){
+    return x + y;
+}
+
 console.log('already created new branch, now merging');
