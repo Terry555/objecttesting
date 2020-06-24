@@ -1,19 +1,51 @@
-try {
-  // Produce a ReferenceError
-  // myFunction();
+// // Iterator Example
+// function nameIterator(names){
+//   let nextIndex = 0
+//
+//   return {
+//     next: function(){
+//       return nextIndex < names.length ?
+//         { value: names[nextIndex++], done: false } :
+//         { done: true }
+//       }
+//   }
+// }
+//
+// // Create an array of names
+// const namesArr = ['Jack', 'Jill', 'John']
+// // Init the iterator and pass in the names array
+// const names = nameIterator(namesArr)
+//
+// console.log(names.next())
+// console.log(names.next())
+// console.log(names.next())
+// console.log(names.next())
 
-  // Produce a TypeError
-  // null.myFunction();
+// Generator Example
+// function* sayNames(){
+//   yield 'Jack'
+//   yield 'Jill'
+//   yield 'John'
+// }
+//
+// const name = sayNames()
+//
+// console.log(name.next());
+// console.log(name.next());
+// console.log(name.next());
+// console.log(name.next());
 
-  // Produce a SyntaxError
-  console.log(eval('2+2'));
+// ID Creator
+function* createIds(){
+  let index = 0
 
-} catch(e) {
-  console.log(e);
-  // console.log(e.name);
-  // console.log(e instanceof TypeError);
-} finally {
-  console.log('Finally runs regardless of result');
+   while(true){
+     yield index++
+   }
 }
 
-console.log('Program continues...');
+const gen = createIds()
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
