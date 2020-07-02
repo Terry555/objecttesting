@@ -1,36 +1,28 @@
+// MAPS = key-value pairs - can use any type as a key or a value
 
-let a, b
+const map1 = new Map();
 
-// Rest pattern
-[a, b, ...rest] = [100, 200, 300, 400, 500]
+// Set keys
+const key1 = 'some string',
+      key2 = {},
+      key3 = function(){}
 
-// Array destructuring
-// const people = ['John', 'Beth', 'Mike']
-//
-// const [person1, person2, person3] = people
-//
-// console.log(person2);
+// Set map values by key
+map1.set(key1, 'Value of key1')
+map1.set(key2, 'Value of key2')
+map1.set(key3, 'Value of key3')
 
-// Parse array returned from function
-// function getPeople(){
-//   return ['John', 'Beth', 'Mike']
+// ITERATING MAPS
+
+// Loop using for...of to get keys and values
+// for (let value of map1.values()){
+//   console.log(value);
 // }
-//
-// let person1, person2, person3
-// [person1, person2, person3] = getPeople()
-// console.log(person2);
 
-const person = {
-  name: 'John Doe',
-  age: 32,
-  city: 'Miami',
-  gender: 'Male',
-  sayHello: function(){
-    console.log('Hello');
-  }
-}
+// map1.forEach(function(value, key){
+//   console.log(key);
+// })
 
-// Old ES5
-const { name, age, city, sayHello } = person
-
-sayHello();
+// CONVERT TO ARRAYS
+const keyValArr = Array.from(map1)
+console.log(keyValArr);
