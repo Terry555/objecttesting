@@ -25,4 +25,4 @@ map1.set(key3, 'Value of key3')
 
 // CONVERT TO ARRAYS
 const keyValArr = Array.from(map1)
-console.log(keyValArr);
+console.log('testing1234566');
