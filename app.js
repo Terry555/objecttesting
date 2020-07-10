@@ -1,28 +1,53 @@
-// MAPS = key-value pairs - can use any type as a key or a value
+// Basic structure
 
-const map1 = new Map();
+// (function(){
+//     // Declare private variables and functions
+//
+//   return {
+//     // Declare public variables and functions
+//   }
+// })()
 
-// Set keys
-const key1 = 'some string',
-      key2 = {},
-      key3 = function(){}
+// STANDARD MODULE PATTERN
+// const UICtrl = (function(){
+//     let text = 'Hello World'
+//
+//     const changeText = function(){
+//       const element = document.querySelector('h1')
+//       element.textContent = text
+//     }
+//
+//     return {
+//       callChangeText: function(){
+//         changeText()
+//         console.log(text);
+//       }
+//     }
+// })();
+//
+// UICtrl.callChangeText()
 
-// Set map values by key
-map1.set(key1, 'Value of key1')
-map1.set(key2, 'Value of key2')
-map1.set(key3, 'Value of key3')
+// REVEALING MODULE PATTERN
+const ItemCtrl = (function(){
+  let data = [];
 
-// ITERATING MAPS
+  function add(item){
+    data.push(item)
+    console.log('Item Added...');
+  }
 
-// Loop using for...of to get keys and values
-// for (let value of map1.values()){
-//   console.log(value);
-// }
+  function get(id){
+    return data.find(item => {
+      return item.id === id
+    })
+  }
 
-// map1.forEach(function(value, key){
-//   console.log(key);
-// })
+  return {
+    add: add,
+    get: get
+  }
+})();
 
-// CONVERT TO ARRAYS
-const keyValArr = Array.from(map1)
-console.log('testing1234566');
+ItemCtrl.add({id: 1, name: 'John'})
+ItemCtrl.add({id: 2, name: 'Mark'})
+console.log(ItemCtrl.get(2));
